@@ -12,14 +12,14 @@ module.exports = {
   CookieSecret: "x1 Lixo", //A Secret like a password
   EmbedColor: "RANDOM", //Color of most embeds | Dont edit unless you want a specific color instead of a random one each time
   Permissions: 2205280576, //Bot Inviting Permissions
-  Website: process.env.WEBSITE || "http://localhost", //Website where it was hosted at includes http or https || Use "0.0.0.0" if you using Heroku
+  Website: process.env.WEBSITE || "0.0.0.0", //Website where it was hosted at includes http or https || Use "0.0.0.0" if you using Heroku
 
   //Lavalink
   Lavalink: {
     id: "Main",
     host: process.env.HOST,
-    port: parseInt(process.env.PORT),
-    password: process.env.PASSWORD,
+    port: parseInt(process.env.PORT) || 80,
+    pass: process.env.PASSWORD,
     retryAmount: 30,
     retryDelay: 3000,
     secure: false // Set this to true if you're self-hosting lavalink on replit.

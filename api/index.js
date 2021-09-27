@@ -7,7 +7,7 @@ const RoutesPath = join(__dirname, "Routes");
 
 fs.readdir(RoutesPath, (err, files) => {
   if (err) return console.log(err);
-  files.forEach((file) => {
+  files.forEach(file => {
     api.use("/api/" + file.split(".")[0], require(RoutesPath + "/" + file));
   });
 });
@@ -35,7 +35,7 @@ passport.use(
       clientID: config.ClientID,
       clientSecret: config.ClientSecret,
       callbackURL: config.Website + config.CallbackURL,
-      scope: config.Scopes.join(" "),
+      scope: config.Scopes.join(" ")
     },
     function (accessToken, refreshToken, profile, done) {
       //User logged in yay!
@@ -50,7 +50,7 @@ api.use(
   session({
     secret: config.CookieSecret,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: false
   })
 );
 
@@ -60,7 +60,7 @@ api.use(passport.session());
 api.get(
   config.CallbackURL,
   passport.authenticate("discord", {
-    failureRedirect: "/",
+    failureRedirect: "/"
   }),
   function (req, res) {
     res.redirect("/dashboard");
