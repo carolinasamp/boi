@@ -1,4 +1,4 @@
-const { DiscordBoi } = require("../structures/DiscordBOI");
+const { DiscordBoi } = require("../structures/DiscordBoi");
 const { VoiceState, MessageEmbed } = require("discord.js");
 /**
  *
